@@ -1,0 +1,11 @@
+# Learn more about services, parameters and containers at
+# https://symfony.com/doc/current/service_container.html
+parameters:
+    #parameter_name: value
+
+services:
+    rpc_server.json_rpc_protocol:
+        class:  Moriony\RpcServer\Protocol\JsonRpcProtocol
+        arguments: [ "@rpc_server.native_json_serializer" ]
+    rpc_server.native_json_serializer:
+        class:  Moriony\RpcServer\ResponseSerializer\NativeJsonSerializer
